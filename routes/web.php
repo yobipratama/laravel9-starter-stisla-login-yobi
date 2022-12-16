@@ -17,18 +17,13 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 Route::get('/config', function () {
     Artisan::call(
-        'migrate:fresh',
-        [
-            '--force' => true
-        ]
+        'migrate:fresh'
     );
     Artisan::call(
-        'db:seed',
-        [
-            '--force' => true
-        ]
+        'db:seed'
     );
 });
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
