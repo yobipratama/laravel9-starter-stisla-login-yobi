@@ -14,6 +14,21 @@ use App\Http\Controllers\RoleAndPermission\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
+Route::get('/config', function () {
+    Artisan::call(
+        'migrate:fresh',
+        [
+            '--force' => true
+        ]
+    );
+    Artisan::call(
+        'db:seed',
+        [
+            '--force' => true
+        ]
+    );
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
